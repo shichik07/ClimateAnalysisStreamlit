@@ -786,6 +786,6 @@ if st.session_state.page == 'Fin':
         st.markdown("#### Streamlit App")
         st.image(os.path.join(script_dir,"Data/sl_add.png"))
     
-    with col1:
+    with col2:
         st.markdown("#### Github Code")
         st.image(os.path.join(script_dir,"Data/git_add.png"))

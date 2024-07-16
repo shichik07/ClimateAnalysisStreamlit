@@ -775,3 +775,17 @@ if st.session_state.page == 'Fin':
     st.markdown("* Using a more sophisticated or theory-driven imputation method and including a variable for lagged CO2 values might improve the model's predictive accuracy")
     st.markdown("* While the current approach identified variables predicting past temperature deviations, developing models to generalize to future data could have significant societal and business relevance")
     
+    st.markdown("""
+                ### Find us:
+                    
+                    """)
+    # show QR codes
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        st.markdown("#### Streamlit App")
+        st.image(os.path.join(script_dir,"Data/sl_add.png"))
+    
+    with col1:
+        st.markdown("#### Github Code")
+        st.image(os.path.join(script_dir,"Data/git_add.png"))

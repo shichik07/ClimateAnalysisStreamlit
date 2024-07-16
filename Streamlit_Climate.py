@@ -19,6 +19,7 @@ import plotly.express as px
 import requests
 import json
 import matplotlib
+import requests
 
 ####### Get relative path
 script_dir = os.path.dirname(os.path.abspath("Streamlit_Climate.py"))
@@ -346,12 +347,16 @@ if st.session_state.page == "Viz":
     st.plotly_chart(fig)
     
     st.write("#### Worldmap")
-    file_path =  os.path.join(script_dir,r"Data\countries.geo.json")
-    # response = requests.get(file_path)
-    # if response.status_code == 200:
-    #   counties = response.json()
-    with open(file_path) as file:
-        counties = json.load(file)
+    # file_path =  os.path.join(script_dir,r"Data\countries.geo.json")
+    # # response = requests.get(file_path)
+    # # if response.status_code == 200:
+    # #   counties = response.json()
+    # with open(file_path) as file:
+    #     counties = json.load(file)
+    file_path = 'https://raw.githubusercontent.com/shichik07/ClimateAnalysisStreamlit/main/Data/countries.geo.json'
+    response = requests.get(file_path)
+    if response.status_code == 200:
+        counties = response.json()
     
     df_1900_2000 = owid_df.loc[(owid_df['Year'] <= 2000) & (owid_df['Year'] >= 1900)]
     fig = px.choropleth_mapbox(df_1900_2000, geojson=counties, locations='Code', color='Surface temperature anomaly',
